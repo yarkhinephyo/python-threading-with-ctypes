@@ -9,7 +9,9 @@ lib.num_primes.argtypes = [c_int32, POINTER(c_int32)]
 MAX_NUM = 2000000
 NUM_THREADS = 4
 
+# Prime counts per thread
 count_list = [0 for _ in range(NUM_THREADS)]
+# One list of numbers for each thread
 num_list_list = []
 
 # Split the list for multiple threads

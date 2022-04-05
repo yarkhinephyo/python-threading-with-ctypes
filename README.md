@@ -1,12 +1,16 @@
 ## CTypes Demo
 
-Install GNU Make to compile the shared libary files.
+Code for demonstrating the usage of `ctypes` to speed up Python code. Blog post [here](https://yarkhinephyo.github.io/blog/notes/2022/04/05/speed-up-python-with-ctypes.html).
+
+## Usage
+
+Install GNU Make.
 
 ```
 make compile
 ```
 
-Test the timings with Python.
+Test the timings with Python (3.8 used).
 
 ```bash
 # Python function only
