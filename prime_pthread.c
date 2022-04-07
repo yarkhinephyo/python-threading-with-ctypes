@@ -44,6 +44,7 @@ int num_primes(int arrSize, int *numArr) {
             exit(1);
         // Combine counts from each thread
         count += countByThreads[i];
+        countByThreads[i] = 0;
     }
     return count;
 }
