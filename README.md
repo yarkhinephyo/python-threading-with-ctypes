@@ -14,17 +14,17 @@ Test the timings with Python (3.8 used).
 
 ```bash
 # Python function only
-python test_prime_python.py
+python -m timeit -n 5 -s 'import test_python as t' 't.timeit_function()'
 
 # Python function with threading module
-python test_prime_python_threading.py
+python -m timeit -n 5 -s 'import test_python_threading as t' 't.timeit_function()'
 
 # C function through ctypes
-python test_prime_ctypes.py
+python -m timeit -n 5 -s 'import test_ctypes as t' 't.timeit_function()'
 
 # C function with pthreads through ctypes
-python test_prime_ctypes_pthread.py
+python -m timeit -n 5 -s 'import test_ctypes_pthread as t' 't.timeit_function()'
 
 # C function with Python threading module
-python test_prime_ctypes_threading.py
+python -m timeit -n 5 -s 'import test_ctypes_threading as t' 't.timeit_function()'
 ```

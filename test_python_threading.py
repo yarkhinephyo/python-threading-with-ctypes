@@ -1,8 +1,7 @@
 from prime import num_primes
-from timeit import default_timer as timer
 import threading
 
-MAX_NUM = 2000000
+MAX_NUM = 1000000
 NUM_THREADS = 4
 
 # Prime counts per thread
@@ -19,15 +18,12 @@ for i in range(NUM_THREADS):
 def thread_function(i, num_list, count_list):
     count_list[i] = num_primes(num_list)
 
-start = timer()
-threads = []
-for i in range(NUM_THREADS):
-    t = threading.Thread(target=thread_function, args=(i, num_list_list[i], count_list))
-    t.start()
-    threads.append(t)
-for thread in threads:
-    thread.join()
-count = sum(count_list) # Combine counts from each thread
-end = timer()
-
-print(f"Primes: {count}\tTime: {end - start:.5f}")
+def timeit_function():
+    threads = []
+    for i in range(NUM_THREADS):
+        t = threading.Thread(target=thread_function, args=(i, num_list_list[i], count_list))
+        t.start()
+        threads.append(t)
+    for thread in threads:
+        thread.join()
+    return sum(count_list) # Combine counts from each thread
